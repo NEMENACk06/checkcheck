@@ -30,7 +30,7 @@
           role: "tab",
           aria_label: "Tab 1",
           class: "#{tab_header(root_path, todos_path)} px-4 py-2 rounded-lg transition font-semibold 
-                 #{current_page?(todos_path) ? 'bg-[#f57b39] text-white shadow-md' : 'text-[#545454] hover:text-[#f57b39] hover:bg-[#f2f2f2]'}",
+                 #{current_page?(todos_path)||current_page?(root_path) ? 'bg-[#f57b39] text-white shadow-md' : 'text-[#545454] hover:text-[#f57b39] hover:bg-[#f2f2f2]'}",
           "data-testid": "todos-link" do %>
           ✅ TODOs
         <% end %>
