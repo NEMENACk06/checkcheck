@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   def index
-    @todos = Todo.order(Arel.sql("due_on IS NULL, due_on ASC"))
+    @todos = Todo.order(created_at: :desc)
     @todo = Todo.new
   end
 
