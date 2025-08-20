@@ -17,7 +17,7 @@ class TodosController < ApplicationController
     if @todo.save
       redirect_to todos_path, notice: "Todo created successfully!"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
