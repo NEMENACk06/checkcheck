@@ -68,6 +68,18 @@
           }
         }
       },
+      "/Users/nemenack/odds/checkcheck/checkcheck/app/jobs/application_job.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "branches": {}
+      },
       "/Users/nemenack/odds/checkcheck/checkcheck/app/models/todo.rb": {
         "lines": [
           1,
@@ -162,29 +174,17 @@
         ],
         "branches": {}
       },
-      "/Users/nemenack/odds/checkcheck/checkcheck/app/jobs/application_job.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {}
-      },
       "/Users/nemenack/odds/checkcheck/checkcheck/app/mailers/application_mailer.rb": {
         "lines": [
-          0,
-          0,
-          0,
-          0
+          1,
+          1,
+          1,
+          null
         ],
         "branches": {}
       }
     },
-    "timestamp": 1755669000
+    "timestamp": 1755669281
   },
   "Unit Tests": {
     "coverage": {

@@ -39,9 +39,9 @@ class TodosHelperTest < ActionView::TestCase
   test "priority_options_for_select returns all options" do
     options = priority_options_for_select
 
-    assert_includes options, ["สำคัญและเร่งด่วน", "important_urgent"]
-    assert_includes options, ["ไม่สำคัญและไม่เร่งด่วน", "not_important_not_urgent"]
-    assert_includes options, ["สำคัญแต่ไม่เร่งด่วน", "important_not_urgent"]
-    assert_includes options, ["ไม่สำคัญแต่เร่งด่วน", "not_important_urgent"]
+    assert_includes options, [ "สำคัญและเร่งด่วน", "important_urgent" ]
+    assert_includes options, [ "ไม่สำคัญและไม่เร่งด่วน", "not_important_not_urgent" ]
+    assert_includes options, [ "สำคัญแต่ไม่เร่งด่วน", "important_not_urgent" ]
+    assert_includes options, [ "ไม่สำคัญแต่เร่งด่วน", "not_important_urgent" ]
   end
 end
