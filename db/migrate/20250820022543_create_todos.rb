@@ -11,7 +11,7 @@ class CreateTodos < ActiveRecord::Migration[8.0]
       t.integer :position,       null: false, default: 0
       t.timestamps
     end
-    add_index :todos, [:category_id, :position], name: "index_todos_on_category_id_and_position"
+    add_index :todos, [ :category_id, :position ], name: "index_todos_on_category_id_and_position"
     add_index :todos, :is_done,                  name: "index_todos_on_is_done"
     add_index :todos, :priority_level,           name: "index_todos_on_priority_level"
   end

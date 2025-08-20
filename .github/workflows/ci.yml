@@ -6,6 +6,15 @@ on:
     branches: [ main ]
 
 jobs:
+  runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - run: bundle exec rubocop --parallel --format github --fail-level refactor
+      
   scan_ruby:
     runs-on: ubuntu-latest
 
