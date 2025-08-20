@@ -55,11 +55,11 @@ jobs:
           bundler-cache: true
 
       - name: Prepare DB
-        env:
-          RAILS_ENV: test
         run: bin/rails db:prepare
 
-      - name: Run tests
-        env:
-          RAILS_ENV: test
+      - name: Run Minitest
         run: bin/rails test
+
+      - name: Run RSpec (if spec/ exists)
+        if: ${{ hashFiles('spec/**/*') != '' }}
+        run: bundle exec rspec

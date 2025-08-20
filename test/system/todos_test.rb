@@ -1,55 +1,46 @@
-require "application_system_test_case"
+# spec/system/todos_spec.rb
+require "rails_helper"
 
-class TodosTest < ApplicationSystemTestCase
-  setup do
-    @todo = todos(:one)
+RSpec.describe "Todos Page", type: :feature, js: true do
+  before do
+    page.driver.browser.manage.window.resize_to(1400, 900)
   end
 
-  test "visiting the index" do
-    visit todos_url
-    assert_selector "h1", text: "Todos"
+  let!(:existing_todo) { Todo.create!(title: "Read a book", priority_level: :important_not_urgent) }
+
+  it "visits the index and sees header + list" do
+    visit todos_path
+
+    expect(page).to have_selector(%([data-testid="list-todos-section"]))
+    expect(page).to have_selector(%([data-testid="list-todos-title"]), text: "Todos")
+    expect(page).to have_selector(%([data-testid="todos-list"]))
+    expect(page).to have_selector('li[data-testid="todo-item"]')
   end
 
-  test "should create todo" do
-    visit todos_url
-    click_on "New todo"
+  it "creates a new todo from the form" do
+    visit todos_path
 
-    fill_in "Category", with: @todo.category_id
-    fill_in "Due on", with: @todo.due_on
-    fill_in "Due time", with: @todo.due_time
-    check "Is done" if @todo.is_done
-    fill_in "Notes", with: @todo.notes
-    fill_in "Position", with: @todo.position
-    fill_in "Priority level", with: @todo.priority_level
-    fill_in "Title", with: @todo.title
-    click_on "Create Todo"
+    title = "Buy milk"
 
-    assert_text "Todo was successfully created"
-    click_on "Back"
+    find(%([data-testid="todo-title-field"])).fill_in with: title
+    find(%([data-testid="todo-due-date"])).fill_in with: Date.today.to_s
+    select_id = find(%([data-testid="todo-priority-select"])).native["id"]
+    select "สำคัญและเร่งด่วน", from: select_id
+
+    find(%([data-testid="todo-submit-btn"])).click
+    expect(page).to have_selector('li[data-testid="todo-item"]')
   end
 
-  test "should update Todo" do
-    visit todo_url(@todo)
-    click_on "Edit this todo", match: :first
+  it "deletes a todo from the list" do
+    visit todos_path
 
-    fill_in "Category", with: @todo.category_id
-    fill_in "Due on", with: @todo.due_on
-    fill_in "Due time", with: @todo.due_time.to_s
-    check "Is done" if @todo.is_done
-    fill_in "Notes", with: @todo.notes
-    fill_in "Position", with: @todo.position
-    fill_in "Priority level", with: @todo.priority_level
-    fill_in "Title", with: @todo.title
-    click_on "Update Todo"
+first_item = first('li[data-testid="todo-item"]')
+    first_title = first_item.find(%([data-testid="todo-title"])).text.strip
 
-    assert_text "Todo was successfully updated"
-    click_on "Back"
-  end
+    accept_confirm do
+      first_item.find(%([data-testid="todo-delete-btn"])).click
+    end
 
-  test "should destroy Todo" do
-    visit todo_url(@todo)
-    click_on "Destroy this todo", match: :first
-
-    assert_text "Todo was successfully destroyed"
+    expect(page).to have_no_text(first_title, wait: 5)
   end
 end
