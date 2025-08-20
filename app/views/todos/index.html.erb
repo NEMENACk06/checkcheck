@@ -1,19 +1,21 @@
-<div class="container mx-auto my-10 p-4">
-  <section id="header">
-    <div class="text-center text-4xl mb-10 font-bold">My Academy Quest</div>
-    <div class="avatar flex justify-center mt-4 mb-6">
+<div class="container mx-auto my-10 p-4" data-testid="container">
+  <section id="header" data-testid="header-section">
+    <div class="text-center text-4xl mb-10 font-bold" data-testid="header-title">My Academy Quest</div>
+    <div class="avatar flex justify-center mt-4 mb-6" data-testid="avatar">
       <div class="ring-primary ring-offset-base-100 w-40 rounded-full ring-2 ring-offset-2">
-        <%= image_tag "profile.jpg", class: "w-auto h-[40vw]" %>
+        <%= image_tag "profile.jpg", class: "w-auto h-[40vw]", "data-testid": "profile-image" %>
       </div>
     </div>
   </section>
-  <section id="add-todo" class="mt-8">
-    <h2 class="text-xl font-semibold mb-4">Add a new Todo</h2>
-    <%= render "form", todo: @todo %>
+  <section id="add-todo" class="mt-8" data-testid="add-todo-section">
+    <h2 class="text-xl font-semibold mb-4" data-testid="add-todo-title">Add a new Todo</h2>
+    <div data-testid="todo-form">
+      <%= render "form", todo: @todo %>
+    </div>
   </section>
-  <section id="list-todos" class="mt-8">
-    <h1 class="text-2xl font-bold mb-4">Todos</h1>
-    <ul class="space-y-2">
+  <section id="list-todos" class="mt-8" data-testid="list-todos-section">
+    <h1 class="text-2xl font-bold mb-4" data-testid="list-todos-title">Todos</h1>
+    <ul class="space-y-2" data-testid="todos-list">
       <%= render @todos %>
     </ul>
   </section>
