@@ -7,4 +7,6 @@ class Todo < ApplicationRecord
     not_important_urgent:     2,
     important_urgent:         3
   }, default: :not_important_not_urgent
+
+  validates :title, presence: true
 end
