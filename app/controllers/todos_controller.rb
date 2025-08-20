@@ -1,6 +1,7 @@
 class TodosController < ApplicationController
   def index
     @todos = Todo.order(Arel.sql("due_on IS NULL, due_on ASC"))
+    @todo = Todo.new
   end
 
   def show
@@ -32,6 +33,15 @@ class TodosController < ApplicationController
       render :edit
     end
   end
+  def toggle
+    @todo = Todo.find(params[:id])
+    @todo.update(is_done: !@todo.is_done)
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to todos_path }
+    end
+  end
+
 
   def destroy
     @todo = Todo.find(params[:id])
