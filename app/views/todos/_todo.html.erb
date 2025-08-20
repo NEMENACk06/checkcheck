@@ -1,8 +1,9 @@
 <li id="<%= dom_id(todo) %>" 
     class="flex items-center hover:scale-101 justify-between p-3 border rounded-lg w-full transition 
-           <%= todo.is_done ? 
-                'bg-[#f2f2f2] border-gray-300 text-gray-400' : 
-                'bg-gradient-to-r from-[#f57b39] via-[#f78d54] to-[#f5a46e] border-0 text-white shadow-md' %>"
+          <%= todo.is_done ? 
+     'bg-[#f2f2f2] border-gray-300 text-gray-400' : 
+     'bg-[#f57b39] border-[#f5a46e] border-1 text-white shadow-md' %>
+"
     data-testid="todo-item"
     data-todo-id="<%= todo.id %>">
   <div class="flex items-center gap-2" data-testid="todo-main">
@@ -11,7 +12,7 @@
               method: :patch,
               data: { turbo_stream: true, testid: "todo-toggle-form-#{todo.id}" } do %>
       <input type="checkbox"
-         class="checkbox border-gray-100 checkbox-success"
+         class="checkbox bordor-gray-100 checkbox-success"
          <%= "checked='checked'" if todo.is_done %>
          data-testid="todo-checkbox"
          onchange="this.form.requestSubmit()">
