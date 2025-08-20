@@ -3,7 +3,6 @@
   <section class="inset-0 flex items-center justify-center z-0">
     <%= image_tag "banner.png", class:"w-[65vw] justify-center top-0 left-0 z-0" %>
   </section>
-
   <!-- Content -->
   <h1 class="text-2xl font-bold mb-4 text-[#545454]" data-testid="list-todos-title">Todos</h1>
   <div class="relative z-10">
@@ -14,7 +13,7 @@
         <%= render "form", todo: @todo %>
       </section>
       <section id="list-todos" data-testid="list-todos-section">
-        <ul class="space-y-2" data-testid="todos-list">
+        <ul class="space-y-2" data-testid="todos-list" id="todos">
           <%= render @todos %>
         </ul>
       </section>

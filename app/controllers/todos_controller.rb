@@ -15,7 +15,10 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
     if @todo.save
-      redirect_to todos_path, notice: "Todo created successfully!"
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to todos_path }
+      end
     else
       render :new, status: :unprocessable_content
     end
@@ -39,7 +42,10 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
-    redirect_to todos_path, notice: "Todo deleted!"
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to todos_path }
+    end
   end
 
   private
