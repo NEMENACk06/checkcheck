@@ -3,7 +3,8 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.all
+    @categories = Category.includes(:todos).all
+    @category   = Category.new
   end
 
   # GET /categories/1 or /categories/1.json
@@ -23,15 +24,12 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
 
-    respond_to do |format|
-      if @category.save
-        format.html { redirect_to @category, notice: "Category was successfully created." }
-        format.json { render :show, status: :created, location: @category }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
-      end
-    end
+     if @category.save
+      redirect_to categories_path(category_id: @category.id), notice: "Category created."
+     else
+      @categories = Category.all
+      render :index, status: :unprocessable_entity
+     end
   end
 
   # PATCH/PUT /categories/1 or /categories/1.json
@@ -49,12 +47,9 @@ class CategoriesController < ApplicationController
 
   # DELETE /categories/1 or /categories/1.json
   def destroy
-    @category.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to categories_path, notice: "Category was successfully destroyed.", status: :see_other }
-      format.json { head :no_content }
-    end
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to categories_path(category_id: Category.first&.id), notice: "Category deleted."
   end
 
   private
@@ -62,9 +57,7 @@ class CategoriesController < ApplicationController
     def set_category
       @category = Category.find(params.expect(:id))
     end
-
-    # Only allow a list of trusted parameters through.
     def category_params
-      params.expect(category: [ :name, :position ])
+      params.require(:category).permit(:name, :color)
     end
 end
