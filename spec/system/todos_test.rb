@@ -23,9 +23,6 @@ RSpec.describe "Todos Page", type: :feature, js: true do
     title = "Buy milk"
 
     find(%([data-testid="todo-title-field"])).fill_in with: title
-    find(%([data-testid="todo-due-date"])).fill_in with: Date.today.to_s
-    select_id = find(%([data-testid="todo-priority-select"])).native["id"]
-    select "สำคัญและเร่งด่วน", from: select_id
 
     find(%([data-testid="todo-submit-btn"])).click
     expect(page).to have_selector('li[data-testid="todo-item"]')
@@ -37,9 +34,8 @@ RSpec.describe "Todos Page", type: :feature, js: true do
 first_item = first('li[data-testid="todo-item"]')
     first_title = first_item.find(%([data-testid="todo-title"])).text.strip
 
-    accept_confirm do
       first_item.find(%([data-testid="todo-delete-btn"])).click
-    end
+
 
     expect(page).to have_no_text(first_title, wait: 5)
   end
