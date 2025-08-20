@@ -27,7 +27,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference("Todo.count") do
       post todos_url, params: { todo: { title: "" } }
     end
-    assert_response :unprocessable_entity
+    assert_response :unprocessable_content
   end
 
   test "should show todo" do
