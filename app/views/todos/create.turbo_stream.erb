@@ -1,0 +1,7 @@
+<%= turbo_stream.append "todos" do %>
+  <%= render "todos/todo", todo: @todo %>
+<% end %>
+
+<%= turbo_stream.replace dom_id(Todo.new, :new_todo_form),
+      partial: "todos/form",
+      locals: { todo: Todo.new } %>

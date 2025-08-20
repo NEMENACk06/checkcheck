@@ -1,57 +1,21 @@
-<%= form_with(model: todo) do |form| %>
-  <% if todo.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
-
-      <ul>
-        <% todo.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :category_id, style: "display: block" %>
-    <%= form.text_field :category_id %>
-  </div>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :notes, style: "display: block" %>
-    <%= form.textarea :notes %>
-  </div>
-
-  <div>
-    <%= form.label :is_done, style: "display: block" %>
-    <%= form.checkbox :is_done %>
-  </div>
-
-  <div>
-    <%= form.label :priority_level, style: "display: block" %>
-    <%= form.number_field :priority_level %>
-  </div>
-
-  <div>
-    <%= form.label :due_on, style: "display: block" %>
-    <%= form.date_field :due_on %>
-  </div>
-
-  <div>
-    <%= form.label :due_time, style: "display: block" %>
-    <%= form.time_field :due_time %>
-  </div>
-
-  <div>
-    <%= form.label :position, style: "display: block" %>
-    <%= form.number_field :position %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+<%= form_with model: todo,
+              id: dom_id(todo, :new_todo_form),
+              data: { turbo_stream: true },
+              class: "md:flex space-x-2" do |f| %>
+  <%= f.text_field :title,
+        placeholder: "New todo",
+        class: "flex-1 border-2 border-emerald-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-400" %>
+  <label class="input w-fit">
+    <span class="label">Due date</span>
+    <%= f.date_field :due_on %>
+  </label>
+  <label class="select w-fit">
+    <span class="label">Priority</span>
+    <%= f.select :priority_level,
+        priority_options_for_select,
+        {},
+        class: "form-select" %>
+  </label>
+  <%= f.submit "Add Todo",
+        class: "px-5 py-2 bg-emerald-500 text-white font-semibold rounded hover:bg-emerald-600 transition" %>
 <% end %>

@@ -5,11 +5,12 @@
   <div class="flex items-center gap-2">
     <!-- Checkbox toggle -->
     <%= form_with url: toggle_todo_path(todo),
-                  method: :patch, data: { turbo_stream: true } do %>
+              method: :patch,
+              data: { turbo_stream: true } do %>
       <input type="checkbox"
-             class="checkbox checkbox-success"
-             <%= "checked='checked'" if todo.is_done %>
-             onchange="this.form.requestSubmit()">
+         class="checkbox checkbox-success"
+         <%= "checked='checked'" if todo.is_done %>
+         onchange="this.form.requestSubmit()">
     <% end %>
     <!-- Title + due date -->
     <span class="<%= todo.is_done ? 'line-through text-gray-400' : 'text-gray-800 font-medium' %>">

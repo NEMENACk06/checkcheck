@@ -7,7 +7,11 @@
       </div>
     </div>
   </section>
-  <section id="list-todos">
+  <section id="add-todo" class="mt-8">
+    <h2 class="text-xl font-semibold mb-4">Add a new Todo</h2>
+    <%= render "form", todo: @todo %>
+  </section>
+  <section id="list-todos" class="mt-8">
     <h1 class="text-2xl font-bold mb-4">Todos</h1>
     <ul class="space-y-2">
       <%= render @todos %>
