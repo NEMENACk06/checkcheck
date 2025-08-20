@@ -16,17 +16,17 @@
          data-testid="todo-checkbox"
          onchange="this.form.requestSubmit()">
     <% end %>
-
     <!-- Title + due date -->
-    <span class="<%= todo.is_done ? 'line-through text-gray-400' : 'text-white font-medium drop-shadow-sm' %>"
+    <span class= "pr-5 <%= todo.is_done ? 'line-through text-gray-400' : 'text-white font-medium drop-shadow-sm' %>"
           data-testid="todo-title">
-      <%= todo.title %>
+      <div class="w-full line-clamp-2 overflow-hidden break-all">
+        <%= todo.title %>
+      </div>
       <% if todo.due_on.present? %>
         <span class="text-sm text-[#fff6ee] font-light" data-testid="todo-due-date">/ <%= todo.due_on.strftime("%Y-%m-%d") %></span>
       <% end %>
     </span>
   </div>
-
   <!-- Delete -->
   <%= link_to "❌",
       todo_path(todo),
