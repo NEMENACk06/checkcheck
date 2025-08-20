@@ -1,16 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<h1 class="text-2xl font-bold mb-4">Todos</h1>
 
-<% content_for :title, "Todos" %>
-
-<h1>Todos</h1>
-
-<div id="todos">
+<ul class="space-y-2">
   <% @todos.each do |todo| %>
-    <%= render todo %>
-    <p>
-      <%= link_to "Show this todo", todo %>
-    </p>
+    <li class="border rounded p-3 <%= todo.is_done ? "bg-gray-200 text-gray-500" : "bg-green-50 text-black" %>">
+      <%= todo.title %> - <%= todo.due_on || "No due date" %>
+      <%= link_to "✏️", edit_todo_path(todo), class: "ml-2 text-blue-600" %>
+      <%= link_to "❌", todo_path(todo), data: { turbo_method: :delete, turbo_confirm: "Delete this todo?" }, class: "ml-2 text-red-600" %>
+    </li>
   <% end %>
-</div>
+</ul>
 
-<%= link_to "New todo", new_todo_path %>
+<div class="mt-4">
+  <%= link_to "➕ New Todo", new_todo_path, class: "bg-indigo-600 text-white px-4 py-2 rounded" %>
+</div>

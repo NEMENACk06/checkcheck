@@ -61,6 +61,7 @@ group :test do
   gem "rspec-rails"
   gem "capybara"
   gem "selenium-webdriver"
+  gem "simplecov", require: false
 end
 
 gem "tailwindcss-rails", "~> 4.3"
