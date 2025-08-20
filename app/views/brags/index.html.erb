@@ -18,7 +18,108 @@
       </h1>
 
     </header>
+
+
+    <!-- Summary -->
+    <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <div class="rounded-2xl border bg-white p-4 shadow-sm">
+        <div class="text-sm text-slate-500">Brags ทั้งหมด</div>
+        <div class="text-2xl font-bold">4</div>
+      </div>
+      <div class="rounded-2xl border bg-white p-4 shadow-sm">
+        <div class="text-sm text-slate-500">High Impact</div>
+        <div class="text-2xl font-bold text-lime-600">3</div>
+      </div>
+      <div class="rounded-2xl border bg-white p-4 shadow-sm">
+        <div class="text-sm text-slate-500">ล่าสุด</div>
+        <div class="text-2xl font-bold text-sky-600">01 ส.ค. 2025</div>
+      </div>
+    </section>
+
+    <!-- Brag Cards (ตัวอย่างข้อมูล) -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <!-- Card 1 -->
+      <article class="rounded-2xl border shadow-sm bg-gradient-to-br from-violet-50 to-sky-50 p-4 hover:shadow transition">
+        <div class="flex items-start justify-between gap-3">
+          <h2 class="text-lg font-semibold">ปล่อย Todo App เวอร์ชันแรก</h2>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-lime-100 text-lime-700">01 ส.ค. 2025</span>
+        </div>
+        <p class="text-slate-600 mt-2 text-sm">Rails + Turbo + Tailwind</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full bg-indigo-100 text-indigo-700">Product Launch</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between">
+          <div class="text-sm">🏁 Impact: <span class="font-medium">ผู้ใช้ 120+</span></div>
+          <div class="flex items-center gap-2">
+            <button class="text-xs px-3 py-1 rounded-full border bg-white hover:bg-slate-50">ดูรายละเอียด</button>
+            <button class="text-xs px-3 py-1 rounded-full border border-red-200 text-red-600 bg-white hover:bg-red-50">ลบ</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="rounded-2xl border shadow-sm bg-gradient-to-br from-violet-50 to-sky-50 p-4 hover:shadow transition">
+        <div class="flex items-start justify-between gap-3">
+          <h2 class="text-lg font-semibold">ขึ้น Coverage 92%</h2>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-lime-100 text-lime-700">15 ก.ค. 2025</span>
+        </div>
+        <p class="text-slate-600 mt-2 text-sm">SimpleCov + CI</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full bg-indigo-100 text-indigo-700">Quality</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between">
+          <div class="text-sm">🏁 Impact: <span class="font-medium">PR merge ง่ายขึ้น</span></div>
+          <div class="flex items-center gap-2">
+            <button class="text-xs px-3 py-1 rounded-full border bg-white hover:bg-slate-50">ดูรายละเอียด</button>
+            <button class="text-xs px-3 py-1 rounded-full border border-red-200 text-red-600 bg-white hover:bg-red-50">ลบ</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="rounded-2xl border shadow-sm bg-gradient-to-br from-violet-50 to-sky-50 p-4 hover:shadow transition">
+        <div class="flex items-start justify-between gap-3">
+          <h2 class="text-lg font-semibold">ย้าย DB แบบ Zero Downtime</h2>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-lime-100 text-lime-700">20 มิ.ย. 2025</span>
+        </div>
+        <p class="text-slate-600 mt-2 text-sm">Postgres Blue/Green Deploy</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full bg-indigo-100 text-indigo-700">Infra</span>
+          <span class="text-xs px-2 py-1 rounded-full bg-indigo-100 text-indigo-700">DevOps</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between">
+          <div class="text-sm">🏁 Impact: <span class="font-medium">ไม่ล่มสักนาที</span></div>
+          <div class="flex items-center gap-2">
+            <button class="text-xs px-3 py-1 rounded-full border bg-white hover:bg-slate-50">ดูรายละเอียด</button>
+            <button class="text-xs px-3 py-1 rounded-full border border-red-200 text-red-600 bg-white hover:bg-red-50">ลบ</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="rounded-2xl border shadow-sm bg-gradient-to-br from-violet-50 to-sky-50 p-4 hover:shadow transition">
+        <div class="flex items-start justify-between gap-3">
+          <h2 class="text-lg font-semibold">ปิด Tech Debt 15 tickets</h2>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-lime-100 text-lime-700">09 พ.ค. 2025</span>
+        </div>
+        <p class="text-slate-600 mt-2 text-sm">ปรับ CI/CD, ลด build time</p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="text-xs px-2 py-1 rounded-full bg-indigo-100 text-indigo-700">Refactor</span>
+        </div>
+        <div class="mt-4 flex items-center justify-between">
+          <div class="text-sm">🏁 Impact: <span class="font-medium">Build time -30%</span></div>
+          <div class="flex items-center gap-2">
+            <button class="text-xs px-3 py-1 rounded-full border bg-white hover:bg-slate-50">ดูรายละเอียด</button>
+            <button class="text-xs px-3 py-1 rounded-full border border-red-200 text-red-600 bg-white hover:bg-red-50">ลบ</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-10 text-sm text-slate-500">
+      <span>ธีม: Indigo/Violet + Lime + Sky/Slate (2025)</span>
+    </footer>
   </div>
 </body>
 </html>
-   
