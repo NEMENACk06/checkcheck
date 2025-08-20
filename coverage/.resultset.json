@@ -68,15 +68,6 @@
           }
         }
       },
-      "/Users/nemenack/odds/checkcheck/checkcheck/app/mailers/application_mailer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ],
-        "branches": {}
-      },
       "/Users/nemenack/odds/checkcheck/checkcheck/app/models/todo.rb": {
         "lines": [
           1,
@@ -102,14 +93,20 @@
         ],
         "branches": {}
       },
-      "/Users/nemenack/odds/checkcheck/checkcheck/app/jobs/application_job.rb": {
+      "/Users/nemenack/odds/checkcheck/checkcheck/app/controllers/brags_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ],
+        "branches": {}
+      },
+      "/Users/nemenack/odds/checkcheck/checkcheck/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null,
-          null,
-          null,
-          null,
-          null,
+          1,
           null
         ],
         "branches": {}
@@ -123,11 +120,11 @@
           null,
           null,
           1,
-          null,
+          0,
           null,
           null,
           1,
-          null,
+          0,
           null,
           null,
           1,
@@ -180,26 +177,29 @@
           }
         }
       },
-      "/Users/nemenack/odds/checkcheck/checkcheck/app/controllers/application_controller.rb": {
+      "/Users/nemenack/odds/checkcheck/checkcheck/app/mailers/application_mailer.rb": {
         "lines": [
           1,
-          null,
+          1,
           1,
           null
         ],
         "branches": {}
       },
-      "/Users/nemenack/odds/checkcheck/checkcheck/app/controllers/brags_controller.rb": {
+      "/Users/nemenack/odds/checkcheck/checkcheck/app/jobs/application_job.rb": {
         "lines": [
           1,
-          1,
+          null,
+          null,
+          null,
+          null,
           null,
           null
         ],
         "branches": {}
       }
     },
-    "timestamp": 1755682857
+    "timestamp": 1755683426
   },
   "Unit Tests": {
     "coverage": {

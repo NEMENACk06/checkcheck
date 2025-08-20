@@ -10,7 +10,7 @@
     <div class="flex flex-col space-y-8">
       <section id="add-todo">
         <h2 class="text-xl font-semibold mb-4 text-[#545454]">Add a new Todo</h2>
-        <%= render "form", todo: @todo %>
+        <%= render "form", todo: Todo.new %>
       </section>
       <section id="list-todos" data-testid="list-todos-section">
         <ul class="space-y-2" data-testid="todos-list" id="todos">
