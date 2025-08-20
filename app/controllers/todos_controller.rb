@@ -25,14 +25,7 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
   end
 
-  def update
-    @todo = Todo.find(params[:id])
-    if @todo.update(todo_params)
-      redirect_to todos_path, notice: "Todo updated!"
-    else
-      render :edit
-    end
-  end
+
   def toggle
     @todo = Todo.find(params[:id])
     @todo.update(is_done: !@todo.is_done)
