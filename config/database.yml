@@ -9,13 +9,19 @@ default: &default
 development:
   <<: *default
   database: <%= ENV.fetch("POSTGRESQL_DB_DEV", "checkcheck_development") %>
-  
 
+
+<% if ENV["DATABASE_URL"].present? %>
+test:
+  url: <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+<% else %>
 test:
   adapter: sqlite3
   database: db/test.sqlite3
   pool: 5
   timeout: 5000
+<% end %>
 
 production:
   primary: &primary_production
