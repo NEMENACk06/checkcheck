@@ -1,5 +1,5 @@
 # .github/workflows/rubocop.yml
-name: RuboCop
+name: RuboCop + Test
 
 on:
   push:
@@ -10,15 +10,51 @@ on:
 jobs:
   rubocop:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2"     # ให้ตรงกับโปรเจกต์พี่
-          bundler-cache: true     # auto bundle install + cache
+          ruby-version: "3.2"        # ปรับตามโปรเจกต์
+          bundler-cache: true
 
       - name: Run RuboCop (strict)
         run: bundle exec rubocop --parallel --format github --fail-level refactor
+
+  test:
+    name: Minitest
+    runs-on: ubuntu-latest
+    needs: rubocop            # lint ต้องผ่านก่อน
+    env:
+      RAILS_ENV: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+
+      # ถ้าโปรเจกต์ใช้ JS dependencies ให้เปิดสองบรรทัดนี้
+      # - uses: actions/setup-node@v4
+      #   with: { node-version: "20" }
+      # - run: npm ci
+
+      - name: Prepare database
+        run: |
+          bin/rails db:prepare
+
+      - name: Clean old coverage (optional)
+        run: rm -rf coverage
+
+      - name: Run tests
+        run: bin/rails test
+
+      - name: Upload coverage artifact (optional)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage/

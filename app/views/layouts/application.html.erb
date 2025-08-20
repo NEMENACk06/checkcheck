@@ -27,9 +27,16 @@
               role: "tab",
               aria_label: "Tab 1",
               class: tab_header(root_path,todos_path) ,
-              "data-testid": "categories-link",
-              data: { testid: "categories-link" } do %>
+              "data-testid": "todos-link",
+              data: { testid: "todos-link" } do %>
           TODOs
+        <% end %>
+         <%= link_to my_brags_path,
+              role: "tab",
+              aria_label: "Tab 2",
+              class: tab_header(my_brags_path) ,
+              data: { testid: "my-brags-link" } do %>
+          My Brags
         <% end %>
       </div>
     </div>
