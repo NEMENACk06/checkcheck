@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     end
   end
   root "todos#index"
+  get "my-brags" => "brags#index", as: :my_brags
+
 end
