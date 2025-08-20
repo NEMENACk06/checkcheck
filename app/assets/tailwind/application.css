@@ -5,6 +5,8 @@
 @source "../../../app/views/**/*";
 
 @plugin "./daisyui.js";
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap');
+
 
 /* Optional for custom themes – Docs: https://daisyui.com/docs/themes/#how-to-add-a-new-custom-theme */
 @plugin "./daisyui-theme.js" {
