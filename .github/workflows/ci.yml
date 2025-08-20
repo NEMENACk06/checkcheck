@@ -23,7 +23,7 @@ jobs:
         run: bin/rubocop -f github
 
   test:
-    name: Minitest (rails test)
+    name: test (minitest + rspec)
     runs-on: ubuntu-latest
     needs: lint
 

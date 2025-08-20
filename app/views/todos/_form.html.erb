@@ -5,21 +5,9 @@
   <%= f.text_field :title,
         placeholder: "New todo",
         required: true,
-        class: "flex-1 border-2 border-emerald-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-400",
+        class: "flex-1 w-full border-2 border-[#f57b39] rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#f57b39]",
         "data-testid": "todo-title-field" %>
-  <label class="input w-fit" data-testid="todo-due-date-label">
-    <span class="label">Due date</span>
-    <%= f.date_field :due_on, "data-testid": "todo-due-date" %>
-  </label>
-  <label class="select w-fit" data-testid="todo-priority-label">
-    <span class="label">Priority</span>
-    <%= f.select :priority_level,
-        priority_options_for_select,
-        {},
-        class: "form-select",
-        "data-testid": "todo-priority-select" %>
-  </label>
   <%= f.submit "Add Todo",
-        class: "px-5 py-2 bg-emerald-500 text-white font-semibold rounded hover:bg-emerald-600 transition",
+        class: "px-5 py-2 bg-[#f57b39] text-white font-semibold rounded hover:bg-[#e66f30] transition",
         "data-testid": "todo-submit-btn" %>
 <% end %>

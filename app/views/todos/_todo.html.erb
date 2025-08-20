@@ -1,38 +1,34 @@
 <li id="<%= dom_id(todo) %>" 
-    class="flex items-center justify-between p-3 border rounded-lg w-full 
-           <%= todo.is_done ? 'bg-gray-100 border-gray-300 text-gray-400' : 
-                              'bg-gradient-to-r from-emerald-50 to-amber-50 border-emerald-200 text-gray-800' %>"
+    class="flex items-center justify-between p-3 border rounded-lg w-full transition 
+           <%= todo.is_done ? 
+                'bg-[#f2f2f2] border-gray-300 text-gray-400' : 
+                'bg-gradient-to-r from-[#f57b39] via-[#f78d54] to-[#f5a46e] border-0 text-white shadow-md' %>"
     data-testid="todo-item"
     data-todo-id="<%= todo.id %>">
   <div class="flex items-center gap-2" data-testid="todo-main">
     <!-- Checkbox toggle -->
     <%= form_with url: toggle_todo_path(todo),
               method: :patch,
-              data: { turbo_stream: true, testid: "todo-toggle-form-#{todo.id}" } do %>
+              data: { turbo_stream: true, testid: "todo-toggle-form-#{todo.id} " } do %>
       <input type="checkbox"
-         class="checkbox checkbox-success"
+         class="checkbox accent-[#ffffff]"
          <%= "checked='checked'" if todo.is_done %>
          data-testid="todo-checkbox"
          onchange="this.form.requestSubmit()">
     <% end %>
     <!-- Title + due date -->
-    <span class="<%= todo.is_done ? 'line-through text-gray-400' : 'text-gray-800 font-medium' %>"
+    <span class="<%= todo.is_done ? 'line-through text-gray-400' : 'text-white font-medium drop-shadow-sm' %>"
           data-testid="todo-title">
       <%= todo.title %>
       <% if todo.due_on.present? %>
-        <span data-testid="todo-due-date">/ <%= todo.due_on.strftime("%Y-%m-%d") %></span>
+        <span class="text-sm text-[#fff6ee] font-light" data-testid="todo-due-date">/ <%= todo.due_on.strftime("%Y-%m-%d") %></span>
       <% end %>
-    </span>
-    <!-- Priority badge -->
-    <span class="ml-2 text-sm px-2 py-0.5 rounded-full <%= priority_badge_class(todo) %>"
-          data-testid="todo-priority">
-      <%= priority_label(todo) %>
     </span>
   </div>
   <!-- Delete -->
   <%= link_to "❌",
       todo_path(todo),
-      data: { turbo_method: :delete, turbo_confirm: "Delete this todo?" },
-      class: "text-red-500 hover:text-red-700 text-lg",
+      data: { turbo_method: :delete },
+      class: "text-white hover:text-gray-200 text-lg transition",
       "data-testid": "todo-delete-btn" %>
 </li>

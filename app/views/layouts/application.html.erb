@@ -21,22 +21,26 @@
     <%= javascript_importmap_tags %>
   </head>
   <body class="font-prompt">
-    <div class="navbar bg-base-100 shadow-sm">
-      <div class="tabs tabs-bordered flex justify-center max-md:justify-end">
+    <div class="navbar shadow-md px-6 py-3 z-60">
+      <div class="flex-1">
+        <h1 class="text-xl font-bold text-[#545454] tracking-wide">My Academy Quest</h1>
+      </div>
+      <div class="tabs flex justify-center max-md:justify-end gap-4">
         <%= link_to todos_path,
-              role: "tab",
-              aria_label: "Tab 1",
-              class: tab_header(root_path,todos_path) ,
-              "data-testid": "todos-link",
-              data: { testid: "todos-link" } do %>
-          TODOs
+          role: "tab",
+          aria_label: "Tab 1",
+          class: "#{tab_header(root_path, todos_path)} px-4 py-2 rounded-lg transition font-semibold 
+                 #{current_page?(todos_path) ? 'bg-[#f57b39] text-white shadow-md' : 'text-[#545454] hover:text-[#f57b39] hover:bg-[#f2f2f2]'}",
+          "data-testid": "todos-link" do %>
+          ✅ TODOs
         <% end %>
-         <%= link_to my_brags_path,
-              role: "tab",
-              aria_label: "Tab 2",
-              class: tab_header(my_brags_path) ,
-              data: { testid: "my-brags-link" } do %>
-          My Brags
+        <%= link_to my_brags_path,
+          role: "tab",
+          aria_label: "Tab 2",
+          class: "#{tab_header(my_brags_path)} px-4 py-2 rounded-lg transition font-semibold 
+                 #{current_page?(my_brags_path) ? 'bg-[#f57b39] text-white shadow-md' : 'text-[#545454] hover:text-[#f57b39] hover:bg-[#f2f2f2]'}",
+          "data-testid": "my-brags-link" do %>
+          🌟 My Brags
         <% end %>
       </div>
     </div>
